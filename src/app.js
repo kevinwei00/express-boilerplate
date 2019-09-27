@@ -22,7 +22,7 @@ app.use(function errorHandler(err, req, res, next) {
     response = { error: { message: 'server error' } };
   } else {
     console.error(err);
-    response = { message: err.message, err };
+    response = { message: err.message, error: err };
   }
   res.status(500).json(response);
 });
