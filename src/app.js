@@ -19,8 +19,9 @@ const app = express();
   MIDDLEWARE
 *******************************************************************/
 app.use(morgan(NODE_ENV === 'production' ? 'tiny' : 'common'));
-app.use(helmet());
 app.use(cors());
+app.use(helmet());
+//app.use(express.json()); //parses JSON data of req body
 app.use(validateBearerToken);
 
 /*******************************************************************
