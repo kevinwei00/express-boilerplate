@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
 app.use((req, res, next) => {
   const err = new Error('Path Not Found');
   err.status = 404;
-  return next(err); // goes to errorHandler
+  next(err); // goes to errorHandler
 });
 app.use(errorHandler);
 
