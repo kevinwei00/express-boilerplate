@@ -10,7 +10,7 @@ function errorHandler(err, req, res, next) {
     console.error(err);
     response = { message: err.message, error: err };
   }
-  return res.status(500).json(response);
+  return res.status(err.status ? err.status : 500).json(response);
 }
 
 module.exports = errorHandler;

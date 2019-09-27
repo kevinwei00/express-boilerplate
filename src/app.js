@@ -34,6 +34,12 @@ app.get('/', (req, res) => {
 /*******************************************************************
   ERROR HANDLING
 *******************************************************************/
+// Catch-all 404 handler
+app.use((req, res, next) => {
+  const err = new Error('Path Not Found');
+  err.status = 404;
+  return next(err); // goes to errorHandler
+});
 app.use(errorHandler);
 
 /*******************************************************************
