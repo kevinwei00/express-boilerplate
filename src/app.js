@@ -21,14 +21,14 @@ const app = express();
 app.use(morgan(NODE_ENV === 'production' ? 'tiny' : 'common'));
 app.use(cors());
 app.use(helmet());
-//app.use(express.json()); //parses JSON data of req body
-app.use(validateBearerToken);
+// app.use(express.json());
+// app.use(validateBearerToken);
 
 /*******************************************************************
   ROUTES
 *******************************************************************/
 app.get('/', (req, res) => {
-  return res.send('Hello, world!');
+  return res.status(200).end();
 });
 
 /*******************************************************************
